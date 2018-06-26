@@ -7,8 +7,15 @@ class Spectrum {
     this.colors = [];
     this.differentialFunctions = [] ;
     for(var c in colors){
-      var tmp_color = this._hexToRgb(colors[c]);
-      this.colors.push(new Color(tmp_color.r, tmp_color.g, tmp_color.b));
+      if (typeof colors[c] == 'string'){
+        var tmp_color = this._hexToRgb(colors[c]);
+        this.colors.push(new Color(tmp_color.r, tmp_color.g, tmp_color.b));
+      } else if (typeof colors[c] == 'object'){
+        if (colors[c].hasOwnProperty("r") && colors[c].hasOwnProperty("g") && colors[c].hasOwnProperty("b")){
+          this.colors.push(new Color(colors[c].r, colors[c].g, colors[c].b));
+        }
+      }
+
     }
     this.setDifferentialFunctions();
   }
@@ -19,7 +26,10 @@ class Spectrum {
 
     console.log("*  " + this.differentialFunctions.length + " differential functions");
     console.log("*  " + this.colors.length + " colours");
-
+    for(var i = 0; i <  this.colors.length ; i++){
+      process.stdout.write("*  ");
+      console.log({r: this.colors[i].r, g:this.colors[i].g, b:this.colors[i].b});
+    }
     process.stdout.write("*  ");
     for(var i = 0; i <  this.colors.length ; i++){
       process.stdout.write(Math.round(100/(this.colors.length-1)*i) + ((i == this.colors.length -1) ? "" : " => "));
