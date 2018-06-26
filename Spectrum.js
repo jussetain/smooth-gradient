@@ -1,5 +1,6 @@
 var Color = require("./Color");
 var Point = require("./Point");
+var DifferentialFunction = require("./DifferentialFunction");
 
 class Spectrum {
   constructor(){
@@ -15,30 +16,33 @@ class Spectrum {
     this.setDifferentialFunctions();
   }
 
+  properties(){
+    console.log("*********************");
+    console.log("*  ");
+
+    console.log("*  " + this.differentialFunctions.length + " differential functions");
+    console.log("*  " + this.colors.length + " colours");
+
+    process.stdout.write("*  ");
+    for(var i = 0; i <  this.colors.length ; i++){
+      process.stdout.write(Math.round(100/(this.colors.length-1)*i) + ((i == this.colors.length -1) ? "" : " => "));
+    }
+    console.log();
+    console.log("*  ");
+    console.log("*********************");
+    console.log();
+    console.log();
+  }
+
   setDifferentialFunctions(){
     for(var i = 0; i <= this.colors.length - 2; i++){
-      var point_r = new Point((100/(this.colors.length-2)*i)/(this.colors.length-1), this.colors[i].r);
-      var point_g = new Point((100/(this.colors.length-2)*i)/(this.colors.length-1), this.colors[i].g);
-      var point_b = new Point((100/(this.colors.length-2)*i)/(this.colors.length-1), this.colors[i].b);
-      var point_r_bis = new Point((100/(this.colors.length-2)*(i+1))/(this.colors.length-1), this.colors[i + 1].r);
-      var point_g_bis = new Point((100/(this.colors.length-2)*(i+1))/(this.colors.length-1), this.colors[i + 1].g);
-      var point_b_bis = new Point((100/(this.colors.length-2)*(i+1))/(this.colors.length-1), this.colors[i + 1].b);
-      var m_r = (point_r_bis.y - point_r.y) / (point_r_bis.x - point_r.x) ;
-      var m_g = (point_g_bis.y - point_g.y) / (point_g_bis.x - point_g.x) ;
-      var m_b = (point_b_bis.y - point_b.y) / (point_b_bis.x - point_b.x) ;
-      var b_r = point_r_bis.y - m_r * point_r_bis.x ;
-      var b_g = point_g_bis.y - m_g * point_g_bis.x ;
-      var b_b = point_b_bis.y - m_b * point_b_bis.x ;
+      var diffR = new DifferentialFunction(this.colors[i].r, (this.colors[i+1].r)).getFunction(i, this.colors.length);
+      var diffG = new DifferentialFunction(this.colors[i].g, (this.colors[i+1].g)).getFunction(i, this.colors.length);
+      var diffB = new DifferentialFunction(this.colors[i].b, (this.colors[i+1].b)).getFunction(i, this.colors.length);
       this.differentialFunctions.push({
-        d_r: (x) => {
-          return m_r * x + b_r ;
-        },
-        d_g: (x) => {
-          return m_g * x + b_g ;
-        },
-        d_b: (x) => {
-          return m_b * x + b_b ;
-        },
+        d_r: diffR,
+        d_g: diffG,
+        d_b: diffB,
       });
     }
   }
@@ -46,15 +50,11 @@ class Spectrum {
   convert(input){
     if(input < 0) input = 0 ;
     if(input > 100) input = 100 ;
-
-    var step = Math.floor(input / (100/this.colors.length - 1)) >= this.colors.length - 1
-      ? Math.floor(this.colors.length - 2)
-      : Math.floor(input / (100/this.colors.length - 1));
-
+    var step = Math.floor((this.colors.length - 1) * input / 100) ;
     var new_r = this.differentialFunctions[step].d_r(input);
     var new_g = this.differentialFunctions[step].d_g(input);
     var new_b = this.differentialFunctions[step].d_b(input);
-    return new Color(Math.round(new_r), Math.round(new_g), Math.round(new_b));
+    return new Color(Math.abs(Math.round(new_r)), Math.abs(Math.round(new_g)), Math.abs(Math.round(new_b)));
   }
 
   _hexToRgb(hex) {

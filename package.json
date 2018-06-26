@@ -1,12 +1,13 @@
 {
-  "name": "analog2color",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "smooth-gradient",
+  "version": "0.1.0",
+  "description": "Generates a gradient and can return a calculated color from an input",
+  "main": "Spectrum.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Justin Legoff",
+  "email": "legoff.justin@gmail.com",
   "license": "ISC",
   "dependencies": {
     "algebra.js": "^0.2.6"
