@@ -1,14 +1,40 @@
 {
   "name": "smooth-gradient",
-  "version": "0.4.4",
+  "version": "0.4.5",
   "description": "Generates a gradient and can return a calculated color from an input",
   "main": "Spectrum.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Justin Legoff",
-  "email": "legoff.justin@gmail.com",
-  "license": "ISC",
+  "author": {
+    "name": "Jussetain",
+    "email": "legoff.justin@gmail.com",
+    "url": "http://justinlegoff.com"
+  },
+  "bugs": {
+    "url": "https://github.com/jussetain/smooth-gradient/issues"
+  },
+  "deprecated": false,
+  "homepage": "https://github.com/jussetain/smooth-gradient/",
+  "keywords": [
+    "color",
+    "gradient",
+    "css",
+    "linear",
+    "javascript",
+    "smooth"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+git@github.com:jussetain/smooth-gradient.git",
+    "web": "https://github.com/jussetain/smooth-gradient/"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/jussetain/smooth-gradient/MIT.LICENSE"
+    }
+  ],
   "eslintConfig": {
     "parser": "babel-eslint",
     "env": {
