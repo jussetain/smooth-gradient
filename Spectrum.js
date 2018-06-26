@@ -6,17 +6,29 @@ class Spectrum {
   constructor(...colors){
     this.colors = [];
     this.differentialFunctions = [] ;
-    for(var c in colors){
-      if (typeof colors[c] == 'string'){
-        var tmp_color = this._hexToRgb(colors[c]);
-        this.colors.push(new Color(tmp_color.r, tmp_color.g, tmp_color.b));
-      } else if (typeof colors[c] == 'object'){
-        if (colors[c].hasOwnProperty("r") && colors[c].hasOwnProperty("g") && colors[c].hasOwnProperty("b")){
-          this.colors.push(new Color(colors[c].r, colors[c].g, colors[c].b));
+    console.log(colors);
+    if(colors.length >= 2){
+      for(var c in colors){
+        if (typeof colors[c] == 'string'){
+          var tmp_color = this._hexToRgb(colors[c]);
+          this.colors.push(new Color(tmp_color.r, tmp_color.g, tmp_color.b));
+        } else if (typeof colors[c] == 'object'){
+          if (colors[c].hasOwnProperty("r") && colors[c].hasOwnProperty("g") && colors[c].hasOwnProperty("b")){
+            this.colors.push(new Color(colors[c].r, colors[c].g, colors[c].b));
+          }
         }
       }
-
+      if (this.colors.length < 2){
+        console.log("Invalid parameters")
+        this.colors.push(new Color(0, 0, 0));
+        this.colors.push(new Color(0, 0, 0));
+      }
+    } else {
+      console.log("Invalid parameters")
+      this.colors.push(new Color(0, 0, 0));
+      this.colors.push(new Color(0, 0, 0));
     }
+
     this.setDifferentialFunctions();
   }
 
