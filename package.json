@@ -1,6 +1,6 @@
 {
   "name": "smooth-gradient",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Generates a gradient and can return a calculated color from an input",
   "main": "Spectrum.js",
   "scripts": {
@@ -9,9 +9,6 @@
   "author": "Justin Legoff",
   "email": "legoff.justin@gmail.com",
   "license": "ISC",
-  "dependencies": {
-    "algebra.js": "^0.2.6"
-  },
   "eslintConfig": {
     "parser": "babel-eslint",
     "env": {
