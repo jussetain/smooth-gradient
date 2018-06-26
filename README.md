@@ -4,8 +4,8 @@ smooth-gradient.js
 
 Calculate some gradient and a specific color for a input value
 
-Using Gradient.js Server-side
----------------------------
+Using smooth-gradient server side
+---------------------------------
 Install the smooth-gradient module
 
 ```
