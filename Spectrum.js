@@ -49,7 +49,7 @@ class Spectrum {
 
   convert(input){
     if(input < 0) input = 0 ;
-    if(input > 100) input = 100 ;
+    if(input >= 100) input = 99 ;
     var step = Math.floor((this.colors.length - 1) * input / 100) ;
     var new_r = this.differentialFunctions[step].d_r(input);
     var new_g = this.differentialFunctions[step].d_g(input);
