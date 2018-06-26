@@ -1,6 +1,6 @@
 {
   "name": "smooth-gradient",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "Generates a gradient and can return a calculated color from an input",
   "main": "Spectrum.js",
   "scripts": {

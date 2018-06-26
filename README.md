@@ -32,7 +32,6 @@ You can now retreive the color corresponding to your input in the gradiant spect
 Only values between 0 and 100 are effective. Negatives will be considered as 0 and values above 100 as 100.
 
 ```javascript
-// Colors can be given as an unlimited number of parameters
 var color = grad.getColor(45);
 ```
 
