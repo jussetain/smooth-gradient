@@ -1,2 +1,6 @@
-node_modules/
-.idea/
+.*
+!.gitignore
+!.babelrc
+dist
+node_modules
+package-lock.json
