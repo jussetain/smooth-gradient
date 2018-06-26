@@ -33,6 +33,7 @@ Only values between 0 and 100 are effective. Negatives will be considered as 0 a
 
 ```javascript
 var color = grad.getColor(45);
+console.log(color); // output => Color { r: 0, g: 128, b: 128 }
 ```
 
 This package is perfect for color gradient progress bar for example.
