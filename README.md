@@ -25,7 +25,7 @@ A single class is exposed, Spectrum, which takes a list of colors stops and step
 
 ```javascript
 // Colors can be given as an unlimited number of parameters
-var grad = new Spectrum("#ff0000", "#00ff00", "#0000ff");
+var grad = new Spectrum("FF0000", "00FF00", {r: 0, g:0, b:255}, "#000000");
 ```
 
 You can now retreive the color corresponding to your input in the gradiant spectrum.
