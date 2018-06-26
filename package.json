@@ -1,6 +1,6 @@
 {
   "name": "smooth-gradient",
-  "version": "0.4.6",
+  "version": "0.4.7",
   "description": "Generates a gradient and can return a calculated color from an input",
   "main": "Spectrum.js",
   "scripts": {
@@ -29,7 +29,12 @@
     "url": "git+git@github.com:jussetain/smooth-gradient.git",
     "web": "https://github.com/jussetain/smooth-gradient/"
   },
-  "licence": "ISC",
+  "licence": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/jussetain/smooth-gradient/MIT.LICENSE"
+    }
+  ],
   "eslintConfig": {
     "parser": "babel-eslint",
     "env": {
