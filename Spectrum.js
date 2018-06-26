@@ -3,12 +3,9 @@ var Point = require("./Point");
 var DifferentialFunction = require("./DifferentialFunction");
 
 class Spectrum {
-  constructor(){
+  constructor(...colors){
     this.colors = [];
     this.differentialFunctions = [] ;
-  }
-
-  setColors(...colors){
     for(var c in colors){
       var tmp_color = this._hexToRgb(colors[c]);
       this.colors.push(new Color(tmp_color.r, tmp_color.g, tmp_color.b));
@@ -47,7 +44,7 @@ class Spectrum {
     }
   }
 
-  convert(input){
+  getColor(input){
     if(input < 0) input = 0 ;
     if(input >= 100) input = 99 ;
     var step = Math.floor((this.colors.length - 1) * input / 100) ;
