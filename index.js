@@ -1,9 +1,5 @@
-/*var Spectrum = require("./lib/Spectrum");
-var spectrum = new Spectrum([], [], "FF0000", "F00000", "FF0F00");
-spectrum.properties();
-var newColor = spectrum.getColor(100);
-console.log(newColor);*/
-
+var Spectrum = require("./lib/Spectrum")
 var ColorChanger = require("./lib/ColorChanger")
 
-console.log(ColorChanger.light("#123456", 150).hex()) ;
+module.exports.Spectrum = Spectrum ;
+module.exports.ColorChanger = ColorChanger ;
