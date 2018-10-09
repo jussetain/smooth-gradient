@@ -6,4 +6,4 @@ console.log(newColor);*/
 
 var ColorChanger = require("./lib/ColorChanger")
 
-console.log(ColorChanger.light("#123456", 150)) ;
+console.log(ColorChanger.light("#123456", 150).hex()) ;
